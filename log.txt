@@ -1,0 +1,343 @@
+2022-08-23 14:30:46 [scrapy.utils.log] INFO: Scrapy 2.6.2 started (bot: stockcrawler)
+2022-08-23 14:30:46 [scrapy.utils.log] INFO: Versions: lxml 4.6.1.0, libxml2 2.9.10, cssselect 1.1.0, parsel 1.6.0, w3lib 2.0.1, Twisted 22.4.0, Python 3.8.5 (default, Sep  4 2020, 02:22:02) - [Clang 10.0.0 ], pyOpenSSL 19.1.0 (OpenSSL 1.1.1h  22 Sep 2020), cryptography 3.1.1, Platform macOS-10.16-x86_64-i386-64bit
+2022-08-23 14:30:46 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'stockcrawler',
+ 'LOG_FILE': 'log.txt',
+ 'NEWSPIDER_MODULE': 'stockcrawler.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['stockcrawler.spiders']}
+2022-08-23 14:30:46 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2022-08-23 14:30:46 [scrapy.extensions.telnet] INFO: Telnet Password: 3816bb4f9163a7a0
+2022-08-23 14:30:46 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2022-08-23 14:30:46 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2022-08-23 14:30:46 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2022-08-23 14:30:46 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2022-08-23 14:30:46 [scrapy.core.engine] INFO: Spider opened
+2022-08-23 14:30:46 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2022-08-23 14:30:46 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2022-08-23 14:30:46 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnbcindonesia.com/robots.txt> (referer: None)
+2022-08-23 14:30:47 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnbcindonesia.com/tag/antm> (referer: None)
+2022-08-23 14:30:47 [logger_cnbc] INFO: Parse Function called on <Selector xpath='//ul[@class="list media_rows middle thumb terbaru gtm_indeks_feed"]' data='<ul class="list media_rows middle thu...'>
+2022-08-23 14:30:47 [scrapy.core.engine] INFO: Closing spider (finished)
+2022-08-23 14:30:47 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 468,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 9511,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 2,
+ 'elapsed_time_seconds': 0.778678,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2022, 8, 23, 7, 30, 47, 340310),
+ 'httpcompression/response_bytes': 49441,
+ 'httpcompression/response_count': 2,
+ 'log_count/DEBUG': 3,
+ 'log_count/INFO': 11,
+ 'memusage/max': 59068416,
+ 'memusage/startup': 59064320,
+ 'response_received_count': 2,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2022, 8, 23, 7, 30, 46, 561632)}
+2022-08-23 14:30:47 [scrapy.core.engine] INFO: Spider closed (finished)
+2022-08-23 14:31:45 [scrapy.utils.log] INFO: Scrapy 2.6.2 started (bot: stockcrawler)
+2022-08-23 14:31:45 [scrapy.utils.log] INFO: Versions: lxml 4.6.1.0, libxml2 2.9.10, cssselect 1.1.0, parsel 1.6.0, w3lib 2.0.1, Twisted 22.4.0, Python 3.8.5 (default, Sep  4 2020, 02:22:02) - [Clang 10.0.0 ], pyOpenSSL 19.1.0 (OpenSSL 1.1.1h  22 Sep 2020), cryptography 3.1.1, Platform macOS-10.16-x86_64-i386-64bit
+2022-08-23 14:31:45 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'stockcrawler',
+ 'LOG_FILE': 'log.txt',
+ 'NEWSPIDER_MODULE': 'stockcrawler.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['stockcrawler.spiders']}
+2022-08-23 14:31:45 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2022-08-23 14:31:45 [scrapy.extensions.telnet] INFO: Telnet Password: 7ff6d2d709024646
+2022-08-23 14:31:45 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2022-08-23 14:31:45 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2022-08-23 14:31:45 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2022-08-23 14:31:45 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2022-08-23 14:31:45 [scrapy.core.engine] INFO: Spider opened
+2022-08-23 14:31:45 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2022-08-23 14:31:45 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2022-08-23 14:31:45 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnbcindonesia.com/robots.txt> (referer: None)
+2022-08-23 14:31:45 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnbcindonesia.com/tag/antm> (referer: None)
+2022-08-23 14:31:45 [scrapy.core.engine] INFO: Closing spider (finished)
+2022-08-23 14:31:45 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 468,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 9481,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 2,
+ 'elapsed_time_seconds': 0.361485,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2022, 8, 23, 7, 31, 45, 814385),
+ 'httpcompression/response_bytes': 49441,
+ 'httpcompression/response_count': 2,
+ 'log_count/DEBUG': 3,
+ 'log_count/INFO': 11,
+ 'memusage/max': 58982400,
+ 'memusage/startup': 58982400,
+ 'response_received_count': 2,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2022, 8, 23, 7, 31, 45, 452900)}
+2022-08-23 14:31:45 [scrapy.core.engine] INFO: Spider closed (finished)
+2022-08-23 14:31:55 [scrapy.utils.log] INFO: Scrapy 2.6.2 started (bot: stockcrawler)
+2022-08-23 14:31:55 [scrapy.utils.log] INFO: Versions: lxml 4.6.1.0, libxml2 2.9.10, cssselect 1.1.0, parsel 1.6.0, w3lib 2.0.1, Twisted 22.4.0, Python 3.8.5 (default, Sep  4 2020, 02:22:02) - [Clang 10.0.0 ], pyOpenSSL 19.1.0 (OpenSSL 1.1.1h  22 Sep 2020), cryptography 3.1.1, Platform macOS-10.16-x86_64-i386-64bit
+2022-08-23 14:31:55 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'stockcrawler',
+ 'LOG_FILE': 'log.txt',
+ 'NEWSPIDER_MODULE': 'stockcrawler.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['stockcrawler.spiders']}
+2022-08-23 14:31:55 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2022-08-23 14:31:55 [scrapy.extensions.telnet] INFO: Telnet Password: 8532b7f589386a83
+2022-08-23 14:31:55 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2022-08-23 14:31:55 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2022-08-23 14:31:55 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2022-08-23 14:31:55 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2022-08-23 14:31:55 [scrapy.core.engine] INFO: Spider opened
+2022-08-23 14:31:55 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2022-08-23 14:31:55 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2022-08-23 14:31:55 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnbcindonesia.com/robots.txt> (referer: None)
+2022-08-23 14:31:56 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnbcindonesia.com/tag/antm> (referer: None)
+2022-08-23 14:31:56 [scrapy.core.engine] INFO: Closing spider (finished)
+2022-08-23 14:31:56 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 468,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 9482,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 2,
+ 'elapsed_time_seconds': 0.817642,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2022, 8, 23, 7, 31, 56, 439856),
+ 'httpcompression/response_bytes': 49441,
+ 'httpcompression/response_count': 2,
+ 'log_count/DEBUG': 3,
+ 'log_count/INFO': 11,
+ 'memusage/max': 58597376,
+ 'memusage/startup': 58593280,
+ 'response_received_count': 2,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2022, 8, 23, 7, 31, 55, 622214)}
+2022-08-23 14:31:56 [scrapy.core.engine] INFO: Spider closed (finished)
+2022-08-23 14:32:16 [scrapy.utils.log] INFO: Scrapy 2.6.2 started (bot: stockcrawler)
+2022-08-23 14:32:16 [scrapy.utils.log] INFO: Versions: lxml 4.6.1.0, libxml2 2.9.10, cssselect 1.1.0, parsel 1.6.0, w3lib 2.0.1, Twisted 22.4.0, Python 3.8.5 (default, Sep  4 2020, 02:22:02) - [Clang 10.0.0 ], pyOpenSSL 19.1.0 (OpenSSL 1.1.1h  22 Sep 2020), cryptography 3.1.1, Platform macOS-10.16-x86_64-i386-64bit
+2022-08-23 14:32:16 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'stockcrawler',
+ 'LOG_FILE': 'log.txt',
+ 'NEWSPIDER_MODULE': 'stockcrawler.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['stockcrawler.spiders']}
+2022-08-23 14:32:16 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2022-08-23 14:32:16 [scrapy.extensions.telnet] INFO: Telnet Password: ea72eaed008a134d
+2022-08-23 14:32:16 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2022-08-23 14:32:16 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2022-08-23 14:32:16 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2022-08-23 14:32:16 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2022-08-23 14:32:16 [scrapy.core.engine] INFO: Spider opened
+2022-08-23 14:32:16 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2022-08-23 14:32:16 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2022-08-23 14:32:16 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnbcindonesia.com/robots.txt> (referer: None)
+2022-08-23 14:32:17 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnbcindonesia.com/tag/antm> (referer: None)
+2022-08-23 14:32:17 [logger_cnbc] INFO: Elemen <li> adalah : <Selector xpath='//ul[@class="list media_rows middle thumb terbaru gtm_indeks_feed"]' data='<ul class="list media_rows middle thu...'>
+2022-08-23 14:32:17 [scrapy.core.engine] INFO: Closing spider (finished)
+2022-08-23 14:32:17 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 468,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 9508,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 2,
+ 'elapsed_time_seconds': 0.747566,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2022, 8, 23, 7, 32, 17, 566785),
+ 'httpcompression/response_bytes': 49441,
+ 'httpcompression/response_count': 2,
+ 'log_count/DEBUG': 3,
+ 'log_count/INFO': 11,
+ 'memusage/max': 58699776,
+ 'memusage/startup': 58699776,
+ 'response_received_count': 2,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2022, 8, 23, 7, 32, 16, 819219)}
+2022-08-23 14:32:17 [scrapy.core.engine] INFO: Spider closed (finished)
+2022-08-23 14:32:36 [scrapy.utils.log] INFO: Scrapy 2.6.2 started (bot: stockcrawler)
+2022-08-23 14:32:37 [scrapy.utils.log] INFO: Versions: lxml 4.6.1.0, libxml2 2.9.10, cssselect 1.1.0, parsel 1.6.0, w3lib 2.0.1, Twisted 22.4.0, Python 3.8.5 (default, Sep  4 2020, 02:22:02) - [Clang 10.0.0 ], pyOpenSSL 19.1.0 (OpenSSL 1.1.1h  22 Sep 2020), cryptography 3.1.1, Platform macOS-10.16-x86_64-i386-64bit
+2022-08-23 14:32:37 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'stockcrawler',
+ 'LOG_FILE': 'log.txt',
+ 'NEWSPIDER_MODULE': 'stockcrawler.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['stockcrawler.spiders']}
+2022-08-23 14:32:37 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2022-08-23 14:32:37 [scrapy.extensions.telnet] INFO: Telnet Password: bf71451909d3c25a
+2022-08-23 14:32:37 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2022-08-23 14:32:37 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2022-08-23 14:32:37 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2022-08-23 14:32:37 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2022-08-23 14:32:37 [scrapy.core.engine] INFO: Spider opened
+2022-08-23 14:32:37 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2022-08-23 14:32:37 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2022-08-23 14:32:37 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnbcindonesia.com/robots.txt> (referer: None)
+2022-08-23 14:32:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnbcindonesia.com/tag/antm> (referer: None)
+2022-08-23 14:32:38 [logger_cnbc] INFO: Elemen yang dipanggil <Selector xpath='//ul[@class="list media_rows middle thumb terbaru gtm_indeks_feed"]' data='<ul class="list media_rows middle thu...'>
+2022-08-23 14:32:38 [scrapy.core.engine] INFO: Closing spider (finished)
+2022-08-23 14:32:38 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 468,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 9483,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 2,
+ 'elapsed_time_seconds': 1.28152,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2022, 8, 23, 7, 32, 38, 658221),
+ 'httpcompression/response_bytes': 49441,
+ 'httpcompression/response_count': 2,
+ 'log_count/DEBUG': 3,
+ 'log_count/INFO': 11,
+ 'memusage/max': 59129856,
+ 'memusage/startup': 59129856,
+ 'response_received_count': 2,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2022, 8, 23, 7, 32, 37, 376701)}
+2022-08-23 14:32:38 [scrapy.core.engine] INFO: Spider closed (finished)
