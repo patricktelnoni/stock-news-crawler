@@ -4,42 +4,43 @@ from scrapy import Request
 logger = logging.getLogger('logger_cnbc')
 
 class CnbcSpider(scrapy.Spider):
-    name = "cnbc"
-
+    name            = "cnbc"   
+    # textResult      = []
     def start_requests(self):
         link = 'https://www.cnbcindonesia.com/tag/antm'
         yield scrapy.Request(url = link, callback=self.parse)
 
 
     def parse(self, response):
-        list = []
         for url in response.selector.xpath('//ul[@class="list media_rows middle thumb terbaru gtm_indeks_feed"]/li/article/a').xpath('@href').getall():
-            # logger.info('Elemen yang dipanggil %s', url)
-            # print(url)
-            yield Request(url, callback=self.parseContent, meta={}, dont_filter=True)
-            #list.append(li)
-        #print(list)
+            yield Request(url, callback=self.parseContent)
+
 
     def parseNextPage(self, response):
-        pass
+        data        = response.meta.get('data')
+        divContent  = response.xpath('//div[@class="detail_text"]')
+        textContent = divContent.xpath('p/span/text()') if divContent.xpath('p/span').get() is not None else divContent.xpath('p/text()')
+        for p in textContent.getall():
+            data.append(p)
+        print(data)
 
     def parseContent(self, response):
+        textData    = []
         dateTime    = response.css('.date::text').get()
         title       = response.xpath('//h1/text()').get()
         divContent  = response.xpath('//div[@class="detail_text"]')
 
         textContent = divContent.xpath('p/span/text()') if divContent.xpath('p/span').get() is not None else divContent.xpath('p/text()')
-        #content     = [dateTime, title, newsContent]
-        nextPage    = response.xpath('//div[contains(@class, "long-cta text-right")]')
-        print(title, nextPage)
-        if nextPage.get() is not None:
-            link = nextPage.xpath('a').get()
-            print(link)
-        content     = []
-        # divContent  = response.xpath('string(//div[class="detail_text"]/p/text())').extract()
-        #print(divContent)
+
         for p in textContent.getall():
-            content.append(p)
-        finalContent = ' '.join(content)
+            textData.append(p)
+
+        nextPage    = response.xpath('//div[contains(@class, "long-cta")]')
+        if nextPage.get() is not None:
+            link = nextPage.xpath('a/@href').get()
+            # print(link, self.textResult)
+            yield Request(link, callback=self.parseNextPage, meta={'data':textData})
+
+        finalContent = ' '.join(textData)
         storeContent = [dateTime, title, finalContent]
-        # print(storeContent)
+        print(storeContent)
