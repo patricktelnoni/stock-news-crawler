@@ -1,3 +1,3 @@
 # stock-news-crawler
 
-Crawling situs berita CNBC dan Kontan untuk mengambil teks mengenai berita saham-saham dalam indeks IDX30
+Crawling news portal CNBC & Kontan to retrieve text data about stocks listed in IDX30 index.
