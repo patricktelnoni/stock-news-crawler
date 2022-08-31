@@ -51,4 +51,7 @@ class CnbcSpider(scrapy.Spider):
 
         finalContent = ' '.join(textData)
         storeContent = [dateTime, title, finalContent]
-        print(storeContent)
+        f = open('file.csv','a+')
+        for data in storeContent:
+            f.write("%s\n" % data)
+        #print(storeContent)
