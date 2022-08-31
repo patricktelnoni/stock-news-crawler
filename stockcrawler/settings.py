@@ -11,7 +11,7 @@ BOT_NAME = 'stockcrawler'
 
 SPIDER_MODULES = ['stockcrawler.spiders']
 NEWSPIDER_MODULE = 'stockcrawler.spiders'
-
+#IDX30_LIST      =["adro", "antm", "arto", "asii", "bbca"]
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'stockcrawler (+http://www.yourdomain.com)'

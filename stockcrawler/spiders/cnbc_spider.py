@@ -1,16 +1,21 @@
+
 from urllib import request
-import scrapy, logging, csv
+import scrapy, json
 from scrapy import Request
 
-logger = logging.getLogger('logger_cnbc')
+#logger = logging.getLogger('logger_cnbc')
 
 class CnbcSpider(scrapy.Spider):
     name            = "cnbc"   
     def start_requests(self):
-        link = 'https://www.cnbcindonesia.com/tag/antm'
-        yield scrapy.Request(url = link, callback=self.parse)
-
-
+        file      = open('idx30.json')
+        json_file = json.load(file)
+        for emiten in json_file[0]["code"]:
+            link = 'https://www.cnbcindonesia.com/tag/{}'.format(emiten.lower())
+            print(link)
+            yield scrapy.Request(url = link, callback=self.parse)
+        file.close()
+            
     def parse(self, response):
         paging      = response.xpath('//div[contains(@class, "paging")]')
         max_page    = 1
