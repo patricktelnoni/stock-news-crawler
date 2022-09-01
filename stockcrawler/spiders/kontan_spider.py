@@ -7,16 +7,20 @@ class KontanSpider(scrapy.Spider):
         file      = open('idx30.json')
         json_file = json.load(file)
         for emiten in json_file[0]["code"]:
-            link = 'https://www.kontan.co.id/topik/{}'.format(emiten.lower())
+            link = 'https://www.kontan.co.id/tag/saham-{}'.format(emiten.lower())
             #print(link)
             yield scrapy.Request(url = link, callback=self.parse, meta={'kode_saham' : emiten.lower()})
         file.close()
 
 
     def parse(self, response):
-        kode_saham = response.meta.get('kode_saham')
-        list_link_berita = response.xpath('//ul[@id="load_berita"]/li').get()
-        print(kode_saham, list_link_berita)
+        kode_saham       = response.meta.get('kode_saham')
+        pagination       = response.xpath('//div[contains(class, "stream-loadmore")]')
+
+        list_link_berita = response.xpath('//ul[@id="load_berita"]/li/a/@href').getall()
+        if pagination is not None:
+            print('ada pagination')
+        print(kode_saham, pagination)
 
         ''' url = response.meta.get('url')
         div_content  = response.xpath('//div[@class="detail_text"]')
