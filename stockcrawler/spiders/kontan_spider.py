@@ -1,4 +1,5 @@
 import scrapy, json
+#from playwrigth.async_api import async_playwright
 
 class KontanSpider(scrapy.Spider):
     name = "kontan"
@@ -21,6 +22,7 @@ class KontanSpider(scrapy.Spider):
         if pagination is not None:
             print('ada pagination')
         print(kode_saham, pagination)
+        # next page = https://www.kontan.co.id/tag/loadmore_news/saham-tbig/10
 
         ''' url = response.meta.get('url')
         div_content  = response.xpath('//div[@class="detail_text"]')
