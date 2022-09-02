@@ -73,7 +73,14 @@ class CnbcSpider(scrapy.Spider):
 
         finalContent = ' '.join(text_data)
         storeContent = [kode_saham, dateTime, title, finalContent]
-        f = open('file.csv','a+')
+        yield{
+            'saham':kode_saham,
+            'tanggal_berita':dateTime,
+            'judul':title,
+            'isi':finalContent
+        }
+        ''' f = open('file.csv','a+')
         for data in storeContent:
             f.write("%s\n" % data)
         #print(storeContent)
+        '''
