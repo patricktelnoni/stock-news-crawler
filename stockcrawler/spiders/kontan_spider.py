@@ -1,8 +1,11 @@
+from urllib import request
 import scrapy, json
+
 #from playwrigth.async_api import async_playwright
 
 class KontanSpider(scrapy.Spider):
-    name = "kontan"
+    name        = "kontan"
+    #list_link   = []
 
     def start_requests(self):
         file      = open('idx30.json')
@@ -15,30 +18,35 @@ class KontanSpider(scrapy.Spider):
 
 
     def parse(self, response):
-        kode_saham       = response.meta.get('kode_saham')
+        kode_saham       = response.meta['kode_saham']
         pagination       = response.xpath('//div[contains(class, "stream-loadmore")]')
 
-        list_link_berita = response.xpath('//ul[@id="load_berita"]/li/a/@href').getall()
+        #list_link       = response.xpath('//ul[@id="load_berita"]/li/a/@href').getall()
+        #print(list_link)
         if pagination is not None:
-            print('ada pagination')
-        print(kode_saham, pagination)
-        # next page = https://www.kontan.co.id/tag/loadmore_news/saham-tbig/10
+            for i in range(4):
+                next_page = 'https://www.kontan.co.id/tag/loadmore_news/saham-{}/{}'.format(kode_saham, i*10)
+                # self.parse_next(list_link, next_page)
+                yield scrapy.Request(url=next_page, callback=self.parse_nextlink, meta={'kode_saham':kode_saham})
 
-        ''' url = response.meta.get('url')
-        div_content  = response.xpath('//div[@class="detail_text"]')
-        if div_content.xpath('p').get() is not None:
-            if len(div_content.xpath('p/span').getall()) > 0:
-                print('p contain span', div_content.xpath('p/span/text()').extract())
-                
-            else:
-                print('p without span', div_content.xpath('p/text()').extraxct())
-        else:
-            if div_content.xpath('span').get() is not None:
-                print('no p but with span', div_content.xpath('span/text()').extract())
-            else:
-                print('no span and no p', div_content.xpath('text()').extract())
-        #text_content = div_content.xpath('p/span/text()') if div_content.xpath('p/span').get() is not None else div_content.xpath('/text()')
-        # print(div_content.xpath('span/text()').extract())
-        # print(div_content.xpath('text()').extract())
-       # print(div_content.xpath('text()').extract())
-       '''
+    def parse_nextlink(self, response):
+        #list_link       = response.meta['list_link']
+        kode_saham       = response.meta['kode_saham']
+        nextpage_link   = response.xpath('//li/a/@href').getall()
+        
+        for link in nextpage_link:
+            yield scrapy.Request(url='https:'+link, callback=self.parse_content, meta={'kode_saham':kode_saham})
+
+    def parse_content(self, response):
+        kode_saham  = response.meta['kode_saham']
+        content     = response.xpath('//div[@class="ctn"]/p/text()').extract()
+        full_text   = ' '.join(content[5:])
+        
+        tanggal_berita = response.xpath('//div[@class="fs13 color-gray mar-t-10"]/text()').extract()[0]
+        yield{
+            'saham':kode_saham,
+            'tanggal_berita':tanggal_berita,
+            'isi':full_text
+        }
+        
+    
