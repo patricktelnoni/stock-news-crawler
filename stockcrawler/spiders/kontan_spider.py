@@ -40,9 +40,9 @@ class KontanSpider(scrapy.Spider):
     def parse_content(self, response):
         kode_saham      = response.meta['kode_saham']  
 
-        judul           = response.xpath('//h1[@class="jdl_dtl"]/text()').extract() if response.xpath('//h1[@class="jdl_dtl"]').get() is not None else response.xpath('//h1[@class="detail-desk"]/text()').extract()
+        judul           = response.xpath('//h1[@class="jdl_dtl"]/text()').extract() if response.xpath('//h1[@class="jdl_dtl"]').get() is not None else response.xpath('//h1[@class="detail-desk"]/text()').extract_first()
         content         = response.xpath('//div[@class="tmpt-desk-kon"]/p/text()').extract() if response.xpath('//div[@class="tmpt-desk-kon"]').get() is not None else response.xpath('//div[@class="ctn"]/p/text()').extract()
-        tanggal_berita  = response.xpath('//div[@class="fs13 color-gray mar-t-10"]/text()').extract() if response.xpath('//div[@class="fs13 color-gray mar-t-10"]').get() is not None else response.xpath('//div[@class="ffs14 ff-opensans font-gray"]/text()').extract()
+        tanggal_berita  = response.xpath('//div[@class="fs13 color-gray mar-t-10"]/text()').extract() if response.xpath('//div[@class="fs13 color-gray mar-t-10"]').get() is not None else response.xpath('//div[@class=" fs14 ff-opensans font-gray"]/text()').extract_first()
 
         full_text   = ' '.join(content[5:])
     
