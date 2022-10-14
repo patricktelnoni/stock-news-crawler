@@ -1,6 +1,6 @@
 from urllib import request
 import scrapy, json
-from scrapy.http.request.json_request import JsonRequest
+
 
 
 class StockbitSpider(scrapy.Spider):
@@ -32,7 +32,7 @@ class StockbitSpider(scrapy.Spider):
             'Cookie': 'isLoggedIn=true'
             }
    
-        yield scrapy.Request(url = login, method='POST', headers=headers, body='username=&password=', callback=self.parse)
+        yield scrapy.Request(url = login, method='POST', headers=headers, body='username=patrickadolf&password=P4t_%24sie', callback=self.parse)
     
     def parse(self, response):
         data         = json.loads(response.text)
