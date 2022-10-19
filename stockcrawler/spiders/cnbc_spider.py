@@ -2,19 +2,22 @@
 from urllib import request
 import scrapy, json
 from scrapy import Request
+import requests
 
 #logger = logging.getLogger('logger_cnbc')
 
 class CnbcSpider(scrapy.Spider):
     name            = "cnbc"   
     def start_requests(self):
-        file      = open('idx30.csv')
-        json_file = json.load(file)
-        for emiten in json_file[0]["code"]:
+        # file        = open('idx30.csv')
+       # idx30_link  =  'https://raw.githubusercontent.com/patricktelnoni/stock-news-crawler/main/idx30.json'
+       # x           = requests.get(idx30_link)
+        stock_list  = ['ADRO', 'ANTM', 'ARTO', 'ASII', 'BBCA', 'BBNI', 'BBRI', 'BMRI', 'BRPT', 'BUKA', 'CPIN', 'EMTK', 'GOTO', 'HRUM', 'ICBP', 'INCO', 'INDF', 'INKP', 'ITMG', 'KLBF', 'MDKA', 'PGAS', 'PTBA', 'SMGR', 'TBIG', 'TINS', 'TLKM', 'TOWR', 'UNTR', 'UNVR']
+        for emiten in stock_list:
             link = 'https://www.cnbcindonesia.com/tag/{}'.format(emiten.lower())
             #print(link)
             yield scrapy.Request(url = link, callback=self.parse, meta={'kode_saham' : emiten.lower()})
-        file.close()
+        # file.close()
             
     def parse(self, response):
         kode_saham  = response.meta.get('kode_saham')
