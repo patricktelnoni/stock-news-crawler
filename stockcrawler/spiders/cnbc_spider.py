@@ -8,7 +8,7 @@ from scrapy import Request
 class CnbcSpider(scrapy.Spider):
     name            = "cnbc"   
     def start_requests(self):
-        file      = open('idx30.json')
+        file      = open('idx30.csv')
         json_file = json.load(file)
         for emiten in json_file[0]["code"]:
             link = 'https://www.cnbcindonesia.com/tag/{}'.format(emiten.lower())
