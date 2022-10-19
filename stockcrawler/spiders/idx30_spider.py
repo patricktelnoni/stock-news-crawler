@@ -18,7 +18,7 @@ class Idx30Spider(scrapy.Spider):
         
         #content     = div.xpath('//table[class="table table-bordered table-striped"]/tbody')
         #content     = response.xpath('//div[@class="panel panel-default"]/table[@class="table table-bordered table-striped"]/tbody/tr/td[1]/text()').getall()
-        content     = response.xpath('//div[@class="text-body--3"]/table/tr/td[3]/text()').getall()
+        content     = response.xpath('//div[@class="text-body--3"]/table/tbody/tr/td[3]/p/text()').extract()
         for index, data in enumerate(content):
             result.append(data)
         
