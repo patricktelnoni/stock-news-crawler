@@ -9,8 +9,9 @@ class KontanSpider(scrapy.Spider):
 
     def start_requests(self):
         file      = open('idx30.json')
-        json_file = json.load(file)
-        for emiten in json_file[0]["code"]:
+        # json_file = json.load(file)
+        stock_list  = ['ADRO', 'ANTM', 'ARTO', 'ASII', 'BBCA', 'BBNI', 'BBRI', 'BMRI', 'BRPT', 'BUKA', 'CPIN', 'EMTK', 'GOTO', 'HRUM', 'ICBP', 'INCO', 'INDF', 'INKP', 'ITMG', 'KLBF', 'MDKA', 'PGAS', 'PTBA', 'SMGR', 'TBIG', 'TINS', 'TLKM', 'TOWR', 'UNTR', 'UNVR']
+        for emiten in stock_list:
             link = 'https://www.kontan.co.id/tag/saham-{}'.format(emiten.lower())
             #print(link)
             yield scrapy.Request(url = link, callback=self.parse, meta={'kode_saham' : emiten.lower()})
