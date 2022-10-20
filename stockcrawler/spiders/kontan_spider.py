@@ -15,7 +15,7 @@ class KontanSpider(scrapy.Spider):
             link = 'https://www.kontan.co.id/tag/saham-{}'.format(emiten.lower())
             #print(link)
             yield scrapy.Request(url = link, callback=self.parse, meta={'kode_saham' : emiten.lower()})
-        file.close()
+        # file.close()
 
 
     def parse(self, response):
