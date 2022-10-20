@@ -8,7 +8,7 @@ class KontanSpider(scrapy.Spider):
     #list_link   = []
 
     def start_requests(self):
-        file      = open('idx30.json')
+        # file      = open('idx30.json')
         # json_file = json.load(file)
         stock_list  = ['ADRO', 'ANTM', 'ARTO', 'ASII', 'BBCA', 'BBNI', 'BBRI', 'BMRI', 'BRPT', 'BUKA', 'CPIN', 'EMTK', 'GOTO', 'HRUM', 'ICBP', 'INCO', 'INDF', 'INKP', 'ITMG', 'KLBF', 'MDKA', 'PGAS', 'PTBA', 'SMGR', 'TBIG', 'TINS', 'TLKM', 'TOWR', 'UNTR', 'UNVR']
         for emiten in stock_list:
