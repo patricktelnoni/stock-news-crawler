@@ -20,6 +20,9 @@ USER_AGENT = 'Mozilla/5.0 (iPad; CPU OS 12_2 like Mac OS X) AppleWebKit/605.1.15
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
 
+DOWNLOADER_MIDDLEWARES = {'scrapy_zyte_smartproxy.ZyteSmartProxyMiddleware': 610}
+ZYTE_SMARTPROXY_ENABLED = True
+ZYTE_SMARTPROXY_APIKEY = '91d96966536045e2a4cb36a27f5d3fed'
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
