@@ -49,7 +49,7 @@ class KontanSpider(scrapy.Spider):
     
         yield{
             'saham':kode_saham,
-            'tanggal_berita':tanggal_berita[0],
+            'tanggal_berita':tanggal_berita,
             'judul' : judul,
             'isi':full_text
         }
