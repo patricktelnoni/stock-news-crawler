@@ -1,3 +1,4 @@
+from calendar import month
 from urllib import request
 import scrapy, json
 
@@ -44,11 +45,17 @@ class KontanSpider(scrapy.Spider):
         judul           = response.xpath('//h1[@class="jdl_dtl"]/text()').extract() if response.xpath('//h1[@class="jdl_dtl"]').get() is not None else response.xpath('//h1[@class="detail-desk"]/text()').extract_first()
         content         = response.xpath('//div[@class="tmpt-desk-kon"]/p/text()').extract() if response.xpath('//div[@class="tmpt-desk-kon"]').get() is not None else response.xpath('//div[@class="ctn"]/p/text()').extract()
         tanggal_berita  = ""
-        
+
         if response.xpath('//div[@class="fs13 color-gray mar-t-10"]').get() is not None:
             tanggal_berita = response.xpath('//div[@class="fs13 color-gray mar-t-10"]/text()').extract()[0]
-        else: 
+        elif response.xpath('//div[@class=" fs14 ff-opensans font-gray"]/text()').get() is not None: 
             tanggal_berita = response.xpath('//div[@class=" fs14 ff-opensans font-gray"]/text()').extract()[1]
+        else:
+            datestamp = response.xpath('//div[@class=''date]')
+            month = datestamp.xpath('/div[@class="mm"]')
+            day = datestamp.xpath('/div[@class="dd"]')
+            year = datestamp.xpath('/div[@class="yy"]')
+            tanggal_berita = '{} {} {}'.format(day, month, year)
 
         full_text   = ' '.join(content[5:])
     
