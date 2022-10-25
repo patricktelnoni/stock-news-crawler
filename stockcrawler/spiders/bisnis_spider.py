@@ -1,16 +1,14 @@
-import scrapy
-import re
+import scrapy, re
 
 class BisnisSpider(scrapy.Spider):
-    name = "bisnis.com"
+    name = "bisnis"
 
     def start_request(self):
         stock_list  = ['ADRO', 'ANTM', 'ARTO', 'ASII', 'BBCA', 'BBNI', 'BBRI', 'BMRI', 'BRPT', 'BUKA', 'CPIN', 'EMTK', 'GOTO', 'HRUM', 'ICBP', 'INCO', 'INDF', 'INKP', 'ITMG', 'KLBF', 'MDKA', 'PGAS', 'PTBA', 'SMGR', 'TBIG', 'TINS', 'TLKM', 'TOWR', 'UNTR', 'UNVR']
         
-        for emiten in stock_list:
-            link = 'https://bisnis.com/?q={}'.format(emiten.lower())
-            print(link)
-            yield scrapy.Request(url = link, callback=self.parse, meta={'kode_saham' : emiten.lower()})
+        for stock in stock_list:
+            link = 'https://search.bisnis.com/?q={}'.format(stock)
+            yield scrapy.Request(url = link, callback=self.parse, meta={'kode_saham' : stock.lower()})
 
     def parse(self, response):
         kode_saham       = response.meta['kode_saham']
