@@ -39,7 +39,7 @@ class BisnisSpider(scrapy.Spider):
 
         title   = response.xpath('//h1[@class="title-only"]/text()').extract_first()
         content = response.xpath('//div[@class="col-sm-10 col-sm-offset-2"]/p/text()').getall()
-        date    = response.xpath('//div[@class="news-description"]/span//text()').get()
+        date    = response.xpath('//div[@class="new-description"]/span/text()').extract_first().split('|')[0].strip()
 
         yield{
             'saham'             : kode_saham,
