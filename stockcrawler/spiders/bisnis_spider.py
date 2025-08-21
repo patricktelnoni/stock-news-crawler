@@ -14,7 +14,7 @@ class BisnisSpider(scrapy.Spider):
 
     def parse(self, response):
         kode_saham       = response.meta['kode_saham']
-        pagination       = response.xpath('//ul[contains(class, "pages")]')
+        pagination       = response.xpath('//ul[contains(class, "page-item")]')
         max_page         = 1
 
         if pagination is not None:
@@ -37,13 +37,12 @@ class BisnisSpider(scrapy.Spider):
     def parse_content(self, response):
         kode_saham       = response.meta['kode_saham']
 
-        title   = response.xpath('//h1[@class="title-only"]/text()').extract_first()
-        content = response.xpath('//div[@class="col-sm-10 col-sm-offset-2"]/p/text()').getall()
+        title   = response.xpath('//main/h1[@class="h2"]/text()').extract_first()
+        content = response.xpath('//div[@class="col fsbody2 body-content"]/p/text()').getall()
         date    = response.xpath('//div[@class="new-description"]/span/text()').extract_first().split('|')[0].strip()
 
         yield{
             'saham'             : kode_saham,
-            'tanggal_berita'    : date,
             'judul'             : title,
             'isi'               : ' '.join(content)
         }
