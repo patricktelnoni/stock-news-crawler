@@ -22,7 +22,7 @@ class InvestoridSpider(scrapy.Spider):
             max_page        = re.findall(query_string, last_link)
             '''
         
-        for i in range(1, 5):
+        for i in range(1, 15):
             link = f'https://investor.id/search/{kode_saham}/{i}'
             yield scrapy.Request(url=link, callback=self.iterate_page, meta={'kode_saham': kode_saham})
 
@@ -32,16 +32,17 @@ class InvestoridSpider(scrapy.Spider):
     
         print(list_link)
         for link in list_link:
+            link = 'https://investor.id' + link
             yield scrapy.Request(url=link, callback=self.parse_content, meta={'kode_saham': kode_saham})
 
     def parse_content(self, response):
         kode_saham       = response.meta['kode_saham']
 
-        title   = response.xpath('//h1[@class="title"]/text()').extract_first()
-        content = response.xpath('//div[@class="content"]/text()').extract_first()
+        title   = response.xpath('//h1[@class="h2"]/text()').extract_first()
+        content = response.xpath('//div[@class="col fsbody2 body-content"]/p/text()').extract()
 
         yield{
             'saham'             : kode_saham,
             'judul'             : title,
-            'isi'               : ' '.join(content)
+            'isi'               : ''.join(content)
         }
